@@ -17,16 +17,18 @@ import { UserComponent } from './user/user.component';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { SidebarComponent } from './common/sidebar/sidebar.component';
-import { RegisterComponent } from './register/register.component';
+//import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'auth', component: AuthComponent },
   { path: 'user', component: UserComponent },
-  { path: 'register', component: RegisterComponent },
+//  { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'aboutus', component: AboutusComponent },
 ];
 
 
@@ -48,8 +50,9 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    RegisterComponent,
-    LoginComponent
+//    RegisterComponent,
+    LoginComponent,
+AboutusComponent
   ],  
   providers: [
     {

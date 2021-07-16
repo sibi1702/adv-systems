@@ -9,7 +9,8 @@ import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-logi
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-    registerForm: FormGroup;
+	
+    //registerForm: FormGroup;
     submitted = false;
 
     constructor(
