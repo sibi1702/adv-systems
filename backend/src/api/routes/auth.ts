@@ -10,7 +10,6 @@ const route = Router();
 
 export default (app: Router) => {
   app.use('/auth', route);
-
   route.post(
     '/signup',
     celebrate({

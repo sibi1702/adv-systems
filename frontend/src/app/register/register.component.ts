@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { SocialAuthService } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+import {UserService} from '../user.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-register',
@@ -10,12 +13,14 @@ import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-logi
 })
 export class RegisterComponent implements OnInit {
 	
-    //registerForm: FormGroup;
+    registerForm: FormGroup;
     submitted = false;
 
     constructor(
         private formBuilder: FormBuilder,
-        private authService: SocialAuthService
+        private authService: SocialAuthService,
+        private userService: UserService,
+        private router: Router
     ) { }
 
     ngOnInit(): void {
@@ -41,19 +46,25 @@ export class RegisterComponent implements OnInit {
             return;
         }
 
-        // display form values on success
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+        delete this.registerForm.value.acceptTerms;
+        delete this.registerForm.value.confirmPassword;
+
+        this.userService.addUser(this.registerForm.value).subscribe(data => {
+            if (data.token) {
+                this.router.navigate(['login']);
+            }
+        }) ;
     }
     
     signInWithGoogle(): void {
         this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((userData) => {
-            console.log(userData);
+            this.router.navigate(['index']);
         });
     }
   
     signInWithFB(): void {
       this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then((userData) => {
-          console.log(userData);
+        this.router.navigate(['index']);
       });
     }
   
