@@ -12,7 +12,7 @@ import {
     GoogleLoginProvider,
     FacebookLoginProvider
   } from 'angularx-social-login';
-
+import { AuthGuard } from './auth.guard';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 import { AuthComponent } from './auth/auth.component';
@@ -26,12 +26,10 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 
 
 const routes: Routes = [
-  { path: '', component: IndexComponent },
-  { path: 'auth', component: AuthComponent },
-  { path: 'user', component: UserComponent },
+  { path: '', component: IndexComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'aboutus', component: AboutusComponent },
+  { path: 'aboutus', component: AboutusComponent, canActivate: [AuthGuard]  },
 ];
 
 
