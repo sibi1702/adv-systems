@@ -25,6 +25,7 @@ import { LoginComponent } from './login/login.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 
 
+
 const routes: Routes = [
   { path: '', component: IndexComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent },
@@ -54,7 +55,8 @@ const routes: Routes = [
     SidebarComponent,
     RegisterComponent,
     LoginComponent,
-AboutusComponent
+AboutusComponent,
+
   ],  
   providers: [
     {
