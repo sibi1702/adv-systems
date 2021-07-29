@@ -23,6 +23,8 @@ import { SidebarComponent } from './common/sidebar/sidebar.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { AddComponent } from './post/add/add.component';
+import { ListComponent } from './post/list/list.component';
 
 
 
@@ -31,6 +33,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'aboutus', component: AboutusComponent, canActivate: [AuthGuard]  },
+  { path: 'post/add', component: AddComponent },
+  { path: 'post/list', component: ListComponent },
+
 ];
 
 
@@ -56,6 +61,8 @@ const routes: Routes = [
     RegisterComponent,
     LoginComponent,
 AboutusComponent,
+AddComponent,
+ListComponent,
 
   ],  
   providers: [
