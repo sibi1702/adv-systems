@@ -15,7 +15,30 @@ scheduledDateTime:{
       required: true,
       index: true, 
            },
-           
+postInFacebook:{
+      type:Boolean,
+      default: false,
+      index: true, 
+           },
+postInInstagram:{
+      type:Boolean,
+      default: false,
+      index: true, 
+           },
+postInTwitter:{
+      type:Boolean,
+      default: false,
+      index: true, 
+           },
+postInLinkedin:{
+      type:Boolean,
+      default: false,
+      index: true, 
+           },  
+userId:{
+      type:String,
+      index: true,
+},
   },
   { timestamps: true },
 

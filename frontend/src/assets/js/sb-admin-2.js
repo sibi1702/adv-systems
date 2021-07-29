@@ -52,5 +52,8 @@
     }, 1000, 'easeInOutExpo');
     e.preventDefault();
   });
-
+  
+  
+  //datetime picker using Jquery UI
+  $('datetimepicker').datetimepicker();
 })(jQuery); // End of use strict

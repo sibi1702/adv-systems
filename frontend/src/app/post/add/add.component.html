@@ -1,0 +1,97 @@
+<div id="wrapper">
+      <app-sidebar></app-sidebar>
+         <div id="content-wrapper" class="d-flex flex-column">
+           <div id="content">
+             <app-header></app-header>
+               <div class="container-fluid">
+                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                  <h1 class="h3 mb-0 text-gray-800">Create Post</h1>
+                 </div>
+                  <div class="row d-flex align-items-center h-100">
+                     <div class="col-lg-8 col-xl-6">
+                       <div class="card rounded-3">
+                           <div class="card-body p-2 p-md-5">
+                              <form [formGroup]="postForm" (ngSubmit)="onSubmit()" class="post">
+                                 <div class="mb-3">
+                                   <label for="postDescription" class="form-label">Description</label>
+                                   <textarea 
+                                       class="form-control" 
+                                       id="postDescription" 
+                                       rows="3" 
+                                       name="postDescription" 
+                                       placeholder="What would you like to share?" 
+                                       formControlName="postDescription"
+                                       >
+                                    </textarea>
+                                   <div *ngIf="submitted &&  f.postDescription.errors?.required" class="text-danger validation-error">* Please give the post description.</div>
+                                 </div>
+                                 
+                                 <div class="mb-3">
+                                   <label for="scheduledDateTime" class="form-label">Schedule Post </label>
+                                   <input 
+                                       class="form-check-input datetimepicker" 
+                                       type="text" 
+                                       id="jhjkh" 
+                                       name="scheduledDateTime" 
+                                       value="true"
+                                       class="form-control" 
+                                       formControlName="scheduledDateTime"
+                                       >
+                                       <div id="datetimepicker"></div>
+
+                                   <div *ngIf="submitted && f.scheduledDateTime.errors?.required" class="text-danger validation-error">* Please schedule the date and time.</div><br>
+                                 </div>
+
+                                 <div class="form-check form-check-inline">
+                                    <input 
+                                       class="form-check-input postInFacebook" 
+                                       type="checkbox" 
+                                       id="postInFacebook" 
+                                       name="postInFacebook" 
+                                       value="true"
+                                       formControlName="postInFacebook">
+                                    <label class="form-check-label" for="postInFacebook">Facebook</label>
+                                  </div>
+
+                                  <div class="form-check form-check-inline">
+                                    <input 
+                                       class="form-check-input postInInstagram" 
+                                       type="checkbox" 
+                                       id="postInInstagram" 
+                                       name="postInInstagram" 
+                                       value="true"
+                                       formControlName="postInInstagram">
+                                    <label class="form-check-label" for="postInInstagram">Instagram</label>
+                                  </div>
+
+                                  <div class="form-check form-check-inline">
+                                    <input 
+                                       class="form-check-input postInTwitter" 
+                                       type="checkbox" 
+                                       id="postInTwitter" 
+                                       name="postInTwitter" 
+                                       value="true"
+                                       formControlName="postInTwitter">
+                                    <label class="form-check-label" for="postInTwitter">Twitter</label>
+                                  </div>
+
+                                  <div class="form-check form-check-inline">
+                                    <input 
+                                       class="form-check-input postInLinkedin" 
+                                       type="checkbox" 
+                                       id="postInLinkedin" 
+                                       name="postInLinkedin" 
+                                       value="true"
+                                       formControlName="postInLinkedin">
+                                    <label class="form-check-label" for="postInLinkedin">Linkedin</label>
+                                  </div><br><br>
+                                 <button type="submit" class="btn btn-success btn-lg mb-1">Post</button>
+                              </form>
+                           </div>
+                       </div>
+                     </div> 
+                  </div> 
+               </div>   
+           </div> 
+         </div>
+</div>      
