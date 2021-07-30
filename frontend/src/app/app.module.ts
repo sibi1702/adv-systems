@@ -27,6 +27,7 @@ import { AddComponent } from './post/add/add.component';
 import { ListComponent } from './post/list/list.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 
+import { AlertComponent } from './alert/alert.component';
 
 
 const routes: Routes = [
@@ -66,6 +67,7 @@ AddComponent,
 ListComponent,
 UserprofileComponent,
 
+AlertComponent
   ],  
   providers: [
     {
