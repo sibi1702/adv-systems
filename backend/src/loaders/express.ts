@@ -29,15 +29,9 @@ export default ({ app }: { app: express.Application }) => {
   // Maybe not needed anymore ?
   app.use(require('method-override')());
 
-  app.use((req, res, next) => {
-    console.log("---------",req.body)
-    next();
-  });
-
   // Middleware that transforms the raw string of req.body into json
   app.use(bodyParser.json());
   // Load API routes
-  console.log(config.api.prefix);
   app.use(config.api.prefix, routes());
 
   /// catch 404 and forward to error handler

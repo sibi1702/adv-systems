@@ -65,6 +65,7 @@
                             <button type="submit" class="btn btn-primary btn-user btn-block">
                                 Register Account
                             </button>
+                            <app-alert></app-alert>
                             <hr>
                             <a (click)="signInWithGoogle()" class="btn btn-google btn-user btn-block">
                                 <i class="fab fa-google fa-fw"></i> Register with Google
@@ -75,10 +76,10 @@
                         </form>
                         <hr>
                         <div class="text-center">
-                            <a class="small" href="forgot-password.html">Forgot Password?</a>
+                            <a class="small" routerLink="/forgot-password">Forgot Password?</a>
                         </div>
                         <div class="text-center">
-                            <a class="small" href="login.html">Already have an account? Login!</a>
+                            <a class="small" routerLink="/login">Already have an account? Login!</a>
                         </div>
                     </div>
                 </div>

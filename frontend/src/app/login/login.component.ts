@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 
 import {AuthService} from '../auth.service';
+import {UserService} from '../user.service';
+import { AlertService } from '../alert.service';
+
 
 @Component({
   selector: 'app-login',
@@ -16,7 +19,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService:AuthService,
-    private router: Router
+    private userService:UserService,
+    private router: Router,
+    private alertService: AlertService
   ) { }
 
   ngOnInit(): void {
@@ -28,21 +33,37 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+
+    // reset alerts on submit
+    this.alertService.clear();
+
     // stop here if form is invalid
     if (this.loginForm.invalid) {
         return;
     }
 
-    this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(data => {
-        console.log(data)
+    this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
+      next: (data) => {
         if (data.token) {
-          this.authService.setSession(data);
-          setTimeout(()=>{                           // <<<---using ()=> syntax
-            this.router.navigate(['/']);
-          }, 1500);
-        } else {
-          alert("Invalid Credential!")
-        }
+          this.userService.getCurrentUser(data.token).subscribe({
+            next: (userData) => {
+              this.authService.setSession(data);
+              this.userService.setUserDetail(userData);
+              this.alertService.success("Login successfull! Please wait.");
+              setTimeout(()=>{
+                this.router.navigate(['/']);
+              }, 1500);
+            },
+            error: error => {
+              this.alertService.error(error.error.errors.message);
+            }
+          })
+          
+        }     
+      },
+      error: error => {
+        this.alertService.error(error.error.errors.message);
+      }
     }) ;
   }
 

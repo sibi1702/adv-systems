@@ -17,7 +17,7 @@ export default (app: Router) => {
         firstname: Joi.string().required(),
         lastname: Joi.string().required(),
         email: Joi.string().required(),
-        password: Joi.string().required(),
+        password: Joi.string().required().min(6),
       }),
     }),
     async (req: Request, res: Response, next: NextFunction) => {
@@ -27,7 +27,11 @@ export default (app: Router) => {
         const authServiceInstance = Container.get(AuthService);
         const { user, token } = await authServiceInstance.SignUp(req.body as IUserInputDTO);
         return res.status(201).json({ user, token });
-      } catch (e) {
+      } catch (e) {  
+        if (e.message.includes('duplicate key')) {
+          e.status = 409;
+          e.message = "Email id already exists!! Please use different email id or login."
+        }    
         logger.error('🔥 error: %o', e);
         return next(e);
       }
@@ -51,6 +55,11 @@ export default (app: Router) => {
         const { user, token } = await authServiceInstance.SignIn(email, password);
         return res.json({ user, token, expiresIn:600 }).status(200);
       } catch (e) {
+        if (e.message.includes('User not registered')) {
+          e.status = 401;
+        } else if (e.message.includes('Invalid Password')) {
+          e.status = 403;
+        }
         logger.error('🔥 error: %o',  e );
         return next(e);
       }

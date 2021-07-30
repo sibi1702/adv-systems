@@ -11,7 +11,6 @@ import { User } from './user.model';
   providedIn: 'root'
 })
 export class AuthService {
-
   baseUrl: String = "http://localhost:3000/api/";
   constructor(
     private http: HttpClient
@@ -33,7 +32,7 @@ export class AuthService {
 
       localStorage.setItem('id_token', authResult.token);
       localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
-  }          
+  }    
 
   logout() {
       localStorage.removeItem("id_token");
