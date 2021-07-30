@@ -30,12 +30,19 @@ export default async ({ expressApp }) => {
     model: require('../models/post').default,
   };
 
+  const userprofileModel = {
+    name: 'userprofileModel',
+    // Notice the require syntax and the '.default'
+    model: require('../models/userprofile').default,
+  };
+
   // It returns the agenda instance because it's needed in the subsequent loaders
   const { agenda } = await dependencyInjectorLoader({
     mongoConnection,
     models: [
       userModel,
-      postModel
+      postModel,
+      userprofileModel
       // salaryModel,
       // whateverModel
     ],

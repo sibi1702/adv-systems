@@ -25,6 +25,7 @@ import { LoginComponent } from './login/login.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { AddComponent } from './post/add/add.component';
 import { ListComponent } from './post/list/list.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 
 
@@ -63,6 +64,7 @@ const routes: Routes = [
 AboutusComponent,
 AddComponent,
 ListComponent,
+UserprofileComponent,
 
   ],  
   providers: [

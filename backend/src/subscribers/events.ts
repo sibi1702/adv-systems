@@ -6,4 +6,7 @@ export default {
   post: {
     add: 'onPostAdd',
   },
+  userprofile:{
+    add: 'onUserprofileAdd',
+  }
 };
