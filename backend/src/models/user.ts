@@ -22,6 +22,11 @@ const User = new mongoose.Schema(
       index: true,
     },
 
+    phone: {
+      type: Number,
+      index: true,
+    },
+
     password: String,
 
     salt: String,
@@ -29,6 +34,41 @@ const User = new mongoose.Schema(
     role: {
       type: String,
       default: 'user',
+    },
+
+    bioDescription: {
+      type: String,
+      index : true,
+    },
+
+    companyName: {
+      type: String,
+      index : true,
+    },
+
+    jobTitle: {
+      type: String,
+      index : true,
+    },
+    
+    urlFacebook: {
+      type: String,
+      index : true,
+    },
+
+    urlInstagram: {
+      type: String,
+      index : true,
+    },
+
+    urlTwitter: {
+      type: String,
+      index : true,
+    },
+
+    urlLinkedin: {
+      type: String,
+      index : true,
     },
   },
   { timestamps: true },
