@@ -4,21 +4,21 @@ import MailerService from './mailer';
 import config from '../config';
 import argon2 from 'argon2';
 import { randomBytes } from 'crypto';
-import { IUserprofile, IUserprofileInputDTO } from '../interfaces/IUserprofile';
+import { IUser, IUserInputDTO } from '../interfaces/IUser';
 import { EventDispatcher, EventDispatcherInterface } from '../decorators/eventDispatcher';
 import events from '../subscribers/events';
 
 @Service()
-export default class UserprofileService {
+export default class UserService {
   constructor(
-    @Inject('userprofileModel') private userprofileModel: Models.UserprofileModel,
+    @Inject('userModel') private userModel: Models.UserModel,
     private mailer: MailerService,
     @Inject('logger') private logger,
     @EventDispatcher() private eventDispatcher: EventDispatcherInterface,
   ) {
   }
 
-  public async Add(userprofileInputDTO: IUserprofileInputDTO): Promise<{ userprofile: IUserprofile}> {
+  public async Add(userInputDTO: IUserInputDTO): Promise<{ user: IUser}> {
     try {
      
 
@@ -40,19 +40,19 @@ export default class UserprofileService {
        */
      
       
-      this.logger.silly('Creating userprofile db record');
-      const userprofileRecord = await this.userprofileModel.create({
-        ...userprofileInputDTO,
+      this.logger.silly('Creating user db record');
+      const userRecord = await this.userModel.create({
+        ...userInputDTO,
        
       });
       this.logger.silly('Generating JWT');
      
 
-      if (!userprofileRecord) {
-        throw new Error('Userprofile cannot be created');
+      if (!userRecord) {
+        throw new Error('User cannot be created');
       }
 
-      this.eventDispatcher.dispatch(events.userprofile.add, { userprofile: userprofileRecord });
+      this.eventDispatcher.dispatch(events.user.add, { user: userRecord });
 
       /**
        * @TODO This is not the best way to deal with this
@@ -60,9 +60,9 @@ export default class UserprofileService {
        * that transforms data from layer to layer
        * but that's too over-engineering for now
        */
-      const userprofile = userprofileRecord.toObject();
+      const user = userRecord.toObject();
       
-      return { userprofile };
+      return { user};
     } catch (e) {
       this.logger.error(e);
       throw e;

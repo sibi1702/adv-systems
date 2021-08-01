@@ -51,4 +51,14 @@ export class UserService {
       })
     )
   }
+  updateUserprofile(user:User): Observable<any> {
+    const headers = { 'content-type': 'application/json'}  
+    return this.http.post(this.baseUrl + 'users/update-user-profile', user,{'headers':headers}).pipe(
+      catchError((err) => {
+        console.error(err);
+        throw err;
+      })
+    )
+
+  }
 }
