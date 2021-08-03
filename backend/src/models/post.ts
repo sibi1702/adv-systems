@@ -1,4 +1,4 @@
-import { IUser } from '../interfaces/IUser';
+import { IPost } from '../interfaces/IPost';
 import mongoose from 'mongoose';
 import { timeStamp } from 'console';
 
@@ -44,4 +44,4 @@ userId:{
 
 );
 
-export default mongoose.model<IUser & mongoose.Document>('Post', Post);
+export default mongoose.model<IPost & mongoose.Document>('Post', Post);

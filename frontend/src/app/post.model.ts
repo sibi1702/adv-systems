@@ -1,10 +1,10 @@
 export class Post {
-         private postDescription;
-         private scheduledDateTime;
-         private postInFacebook;
-         private postInInstagram;
-         private postInTwitter;
-         private postInLinkedin;
+         public postDescription;
+         public scheduledDateTime;
+         public postInFacebook;
+         public postInInstagram;
+         public postInTwitter;
+         public postInLinkedin;
 
          
 
