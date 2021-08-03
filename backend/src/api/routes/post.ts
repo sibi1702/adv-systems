@@ -38,6 +38,12 @@ export default (app: Router) => {
       }
     },
   );
+
+  route.get('/list', async (req: Request, res: Response) => {
+    const postServiceInstance = Container.get(PostService);
+    const post = await postServiceInstance.List();
+    return res.json(post).status(200);
+  });
 }
 
  

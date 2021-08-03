@@ -69,5 +69,20 @@ export default class PostService {
     }
   }
 
+  public async List(): Promise<{ }> {
+    try {
+      this.logger.silly('Creating post db record');
+      const postRecord = await this.postModel.find();
+    if (!postRecord) {
+      throw new Error('No records found');
+    }
+    this.eventDispatcher.dispatch(events.post.list, { postRecord });
+      return postRecord;
+    } catch (e) {
+      this.logger.error(e);
+      throw e;
+    }
+  }
+
 
 }
