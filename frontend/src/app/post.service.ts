@@ -16,10 +16,20 @@ export class PostService {
 
   add(post:Post): Observable<any> {
     const headers = { 'content-type': 'application/json'}  
-    //const body=JSON.stringify(user);
     const body = post;
     console.log(body)
     return this.http.post(this.baseUrl + 'post/add', body,{'headers':headers}).pipe(
+      catchError((err) => {
+        console.error(err);
+        throw err;
+      })
+    )
+
+  }
+
+  list(): Observable<any> {
+    const headers = { 'content-type': 'application/json'}  
+    return this.http.get(this.baseUrl + 'post/list',{'headers':headers}).pipe(
       catchError((err) => {
         console.error(err);
         throw err;
