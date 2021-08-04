@@ -5,7 +5,7 @@
                 <app-header></app-header>
                   <div class="container-fluid">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                     <h1 class="h3 mb-0 text-gray-800">Create Post</h1>
+                     <h1 class="h3 mb-0 text-gray-800">Scheduled Posts</h1>
                     </div>
 
 
@@ -16,6 +16,7 @@
              <th scope="col">Post Description</th>
              <th scope="col">Scheduled date and time</th>
              <th scope="col">Posted in</th>
+             <th scope="col">Action</th>
            </tr>
          </thead>
          <tbody>
@@ -28,6 +29,7 @@
               <span class="badge badge-primary" *ngIf="post.postInInstagram">Instagram</span>
               <span class="badge badge-primary" *ngIf="post.postInLinkedin">LinkedIn</span>
             </td>
+             <td><i class="fas fa-pen fa-lg" style="padding-right: 25px; cursor: pointer;"></i><i class="fas fa-trash-alt fa-lg" style="cursor: pointer;"></i></td>
            </tr>
          </tbody>
        </table>
