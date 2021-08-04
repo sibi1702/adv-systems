@@ -17,7 +17,11 @@ export default (app: Router) => {
         firstname: Joi.string().required(),
         lastname: Joi.string().required(),
         email: Joi.string().required(),
-        password: Joi.string().required().min(6),
+        password: Joi.string().required().min(6).messages({
+          'string.min': `"password" should have a minimum length of six characters`,
+          'string.empty': `"password" cannot be an empty field`,
+          'any.required': `"password" is a required field`
+        }),
       }),
     }),
     async (req: Request, res: Response, next: NextFunction) => {
@@ -32,6 +36,7 @@ export default (app: Router) => {
           e.status = 409;
           e.message = "Email id already exists!! Please use different email id or login."
         }    
+
         logger.error('🔥 error: %o', e);
         return next(e);
       }
