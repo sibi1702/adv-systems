@@ -13,54 +13,81 @@
                         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="user">
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text"
-                                        required
-                                        class="form-control form-control-user"
-                                        formControlName="firstname"
-                                        id="firstname"
-                                        placeholder="First Name" />
-                                    <div *ngIf="submitted &&  f.firstname.errors?.required" class="text-danger validation-error">* Please enter first name.</div>
+                                    <input type="text" required class="form-control form-control-user"
+                                        formControlName="firstname" id="firstname" placeholder="First Name" />
+                                    <div *ngIf="submitted &&  f.firstname.errors?.required"
+                                        class="text-danger validation-error">* Please enter first name.</div>
+                                    <div *ngIf="submitted &&  f.firstname.errors?.minlength"
+                                        class="text-danger validation-error">* Minimum three characters required.</div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input
-                                        required
-                                        type="text"
-                                        class="form-control form-control-user"
-                                        formControlName="lastname"
-                                        id="lastname"
-                                        placeholder="Last Name" />
-                                    <div *ngIf="submitted &&  f.lastname.errors?.required" class="text-danger validation-error">* Please enter last name.</div>
+                                    <input required type="text" class="form-control form-control-user"
+                                        formControlName="lastname" id="lastname" placeholder="Last Name" />
+                                    <div *ngIf="submitted &&  f.lastname.errors?.required"
+                                        class="text-danger validation-error">* Please enter last name.</div>
+                                    <div *ngIf="submitted &&  f.lastname.errors?.minlength"
+                                        class="text-danger validation-error">* Minimum four characters required.</div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input
-                                    required
-                                    type="email"
-                                    class="form-control form-control-user"
-                                    id="email"
-                                    formControlName="email"
-                                    placeholder="Email Address" />
-                                <div *ngIf="submitted && f.email.errors?.required" class="text-danger validation-error">* Please enter valid email id.</div>
+                                <input required type="email" class="form-control form-control-user" id="email"
+                                    formControlName="email" placeholder="Email Address" />
+                                <div *ngIf="submitted && f.email.errors?.required" class="text-danger validation-error">
+                                    * Please enter valid email id.</div>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input
-                                        type="password"
-                                        class="form-control form-control-user"
-                                        id="password"
-                                        formControlName="password"
-                                        placeholder="Password">
-                                    <div *ngIf="submitted && f.password.errors?.required" class="text-danger validation-error">* Please enter password.</div>
+                            <div class="form-group input-group mb-3 col-sm-13">
+                                <input [type]="passwordFieldTextType ? 'text' : 'password'"
+                                    class="form-control form-control-user" id="password" formControlName="password"
+                                    placeholder="Password">
+                                    <div class="col-sm-1.5 mb-1 mb-sm-0 input-group-prepend">
+                                        <span class="input-group-text" style="border-top-right-radius: 25px; border-bottom-right-radius: 25px;">
+                                            <i class="fa" [ngClass]="{
+                                            'fa-eye-slash' : !passwordFieldTextType,
+                                            'fa-eye' : passwordFieldTextType}" (click)="showPassword()"
+                                            style="cursor: pointer;">
+                                            </i>
+                                        </span>
+                                    </div>
+                            </div>
+
+                            <div *ngIf="submitted && f.password.errors" class="text-danger validation-error">
+                                <div *ngIf="f.password.errors?.required">* Password is required</div>
+                                <div *ngIf="f.password.errors?.minlength">* Password must be at least 6 characters</div>
+                            </div>
+
+                            <div class="form-group input-group mb-3 col-sm-13 ">
+                                <input [type]="confrimPasswordFieldTextType ? 'text' : 'password'"
+                                    class="form-control form-control-user" id="confirmPassword"
+                                    formControlName="confirmPassword" placeholder="Repeat Password">
+
+                                    <div class="col-sm-1.5 mb-1 mb-sm-0 input-group-prepend ">
+                                        <span class="input-group-text" style="border-top-right-radius: 25px; border-bottom-right-radius: 25px;">
+                                            <i class="fa" [ngClass]="{
+                                            'fa-eye-slash' : !confrimPasswordFieldTextType,
+                                            'fa-eye' : confrimPasswordFieldTextType}" (click)="showConfrimPassword()"
+                                            style="cursor: pointer;">
+                                            </i>
+                                        </span>
+                                    </div>
+                            </div>
+                            
+                            <div *ngIf="submitted && f.confirmPassword.errors" class="text-danger validation-error">
+                                <div *ngIf="f.confirmPassword.errors?.required">* Confirm Password is required</div>
+                                <div *ngIf="f.confirmPassword.errors?.mustMatch">* Passwords must match</div>
+                            </div>
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox small">
+                                    <input 
+                                      type="checkbox" 
+                                      class="custom-control-input" 
+                                      id="customCheck"
+                                      value="true"
+                                      formControlName="acceptTerms">
+                                    <label class="custom-control-label" for="customCheck">By clicking this you should be agree to our <a href="">terms and condition</a></label>
                                 </div>
-                                <div class="col-sm-6">
-                                    <input
-                                        type="password"
-                                        class="form-control form-control-user"
-                                        id="confirmPassword"
-                                        formControlName="confirmPassword"
-                                        placeholder="Repeat Password">
-                                    <div *ngIf="submitted &&  f.confirmPassword.errors?.required" class="text-danger validation-error">* Please enter password.</div>
-                                </div>
+                            </div>
+                            <div *ngIf="submitted && f.acceptTerms.errors" class="text-danger validation-error">
+                                <div *ngIf="f.acceptTerms.errors?.required">* This is a required feild</div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-user btn-block">
                                 Register Account

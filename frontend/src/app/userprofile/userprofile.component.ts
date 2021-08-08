@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../user.service';
 import { Router } from '@angular/router';
+import {User} from '../user.model';
+
 
 @Component({
   selector: 'app-userprofile',
@@ -12,12 +14,13 @@ export class UserprofileComponent implements OnInit {
 
   userProfileForm: FormGroup;
   submitted = false;
+  user:User
+
 
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
     private router: Router
-
   ) { 
     this.userProfileForm = this.formBuilder.group({
       firstname: ['', Validators.required],
@@ -32,6 +35,8 @@ export class UserprofileComponent implements OnInit {
       urlTwitter: [''],
       urlLinkedin: [''],
   });
+  this.user = this.userService.userValue;
+  console.log("=====>>",this.user)
    }
 
   ngOnInit(): void { }

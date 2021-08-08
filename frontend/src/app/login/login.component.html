@@ -27,10 +27,26 @@
                                                 placeholder="Enter Email Address..." />
                                             <div *ngIf="submitted &&  f.email.errors?.required" class="text-danger validation-error">* Please enter valid email.</div>
 
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                formControlName="password" id="exampleInputPassword" placeholder="Password" />
+                                        </div>  
+                                        <div class="input-group mb-3 form-group">
+                                                
+                                                <input 
+                                                    [type]="viewPassword ? 'text' : 'password'" 
+                                                    class="form-control form-control-user"  
+                                                    formControlName="password" 
+                                                    id="exampleInputPassword" 
+                                                    placeholder="Password" >
+                                                    <div class="input-group-prepend ">
+                                                        <span class="input-group-text" style="border-top-right-radius: 25px; border-bottom-right-radius: 25px;">
+                                                        <i
+                                                        class="fa input-group "
+                                                        [ngClass]="{
+                                                        'fa-eye-slash': !viewPassword,
+                                                        'fa-eye': viewPassword
+                                                        }"
+                                                        (click)="toggleViewPassword()"
+                                                        style="cursor: pointer;"></i></span>
+                                                    </div>
                                             <div *ngIf="submitted &&  f.password.errors?.required" class="text-danger validation-error">* Please enter Password</div>
                                         </div>
                                         <div class="form-group">
