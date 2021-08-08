@@ -13,6 +13,7 @@ import { AlertService } from '../alert.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  viewPassword: boolean;
 
   loginForm: FormGroup;
   submitted = false;
@@ -31,6 +32,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  toggleViewPassword() {
+    this.viewPassword = !this.viewPassword;
+  }
+  
   onSubmit() {
     this.submitted = true;
 

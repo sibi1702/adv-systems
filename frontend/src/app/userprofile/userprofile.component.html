@@ -61,7 +61,8 @@
                             formControlName="firstname"
                             id="firstname"
                             value="" 
-                            name="firstname" required>
+                            name="firstname" 
+                            placeholder="{{user.firstname}}" required>
                             <div *ngIf="submitted &&  f.firstname.errors?.required" class="text-danger validation-error">* Please enter firstname</div>
                         </div>
                       </div>
@@ -78,7 +79,8 @@
                             formControlName="lastname"
                             id="lastname"
                             value="" 
-                            name="lastname" required>
+                            name="lastname"
+                            placeholder="{{user.lastname}}" required>
                             <div *ngIf="submitted &&  f.lastname.errors?.required" class="text-danger validation-error">* Please enter lastname</div>
                         </div>
                       </div>
@@ -93,7 +95,8 @@
                             formControlName="email"
                             id="email"
                             value="" 
-                            name="email" required>
+                            name="email" 
+                            placeholder="{{user.email}}" required>
                             <div *ngIf="submitted &&  f.email.errors?.required" class="text-danger validation-error">* Please enter email</div>
                         </div>
                       </div>
