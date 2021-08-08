@@ -1,4 +1,5 @@
 export class User {
+    _id;
     firstname;
     lastname;
     email;
@@ -14,11 +15,12 @@ export class User {
     urlLinkedin;
 
     constructor (
+        _id: string,
         firstname: string,
         lastname: string,
         email: string,
         profileImage:string,
-        phone: number,
+        phone: string,
         password: string,
         bioDescription: string,
         companyName:string,
@@ -27,6 +29,7 @@ export class User {
         urlInstagram: string,
         urlTwitter: string,
         urlLinkedin: string,) {
+            this._id = _id;
             this.firstname = firstname;
             this.lastname = lastname;
             this.email = email;

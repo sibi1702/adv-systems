@@ -6,13 +6,11 @@ const User = new mongoose.Schema(
     firstname: {
       type: String,
       required: [true, 'Please enter a first name'],
-      index: true,
     },
 
     lastname: {
       type: String,
       required: [true, 'Please enter a first name'],
-      index: true,
     },
 
     email: {
@@ -23,8 +21,7 @@ const User = new mongoose.Schema(
     },
 
     phone: {
-      type: Number,
-      index: true,
+      type: String,
     },
 
     password: String,
@@ -38,37 +35,30 @@ const User = new mongoose.Schema(
 
     bioDescription: {
       type: String,
-      index : true,
     },
 
     companyName: {
       type: String,
-      index : true,
     },
 
     jobTitle: {
       type: String,
-      index : true,
     },
-    
+
     urlFacebook: {
       type: String,
-      index : true,
     },
 
     urlInstagram: {
       type: String,
-      index : true,
     },
 
     urlTwitter: {
       type: String,
-      index : true,
     },
 
     urlLinkedin: {
       type: String,
-      index : true,
     },
   },
   { timestamps: true },

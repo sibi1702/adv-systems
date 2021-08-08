@@ -5,114 +5,101 @@
     <div id="content">
       <app-header></app-header>
       <div class="container-fluid">
-        
+
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
           <h1 class="h3 mb-0 text-gray-800">User profile</h1>
         </div>
 
-          <div class="container">
-            <div class="main-body">
-              <div class="row">
-                <div class="col-lg-4">
-                  <div class="card">
-                    <div class="card-body">
-                      <div class="d-flex flex-column align-items-center text-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
-                        <div class="mt-3">
-                          <h4>Username</h4>
-                        </div>
+        <div class="container">
+          <div class="main-body">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-column align-items-center text-center">
+                      <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin"
+                        class="rounded-circle p-1 bg-primary" width="110">
+                      <div class="mt-3">
+                        <h4>Username</h4>
                       </div>
-                      <hr class="my-4">
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                          <h6 class="mb-0"><i class="fab fa-facebook-f" style="padding-right: 10px;"></i>Facebook</h6>
-                          <span class="text-secondary">Username</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                          <h6 class="mb-0"><i class="fab fa-instagram" style="padding-right: 10px;"></i>Instagram</h6>
-                          <span class="text-secondary">Username</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                          <h6 class="mb-0"><i class="fab fa-twitter" style="padding-right: 10px;"></i>Twitter</h6>
-                          <span class="text-secondary">@Username</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                          <h6 class="mb-0"><i class="fab fa-linkedin" style="padding-right: 10px;"></i>LinkedIn</h6>
-                          <span class="text-secondary">@Username</span>
-                        </li>
-                        <a href="" class="align-items-center list-group-item d-flex justify-content-between">Account Removal</a>
-                      </ul>
                     </div>
+                    <hr class="my-4">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0"><i class="fab fa-facebook-f" style="padding-right: 10px;"></i>Facebook</h6>
+                        <span class="text-secondary">Username</span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0"><i class="fab fa-instagram" style="padding-right: 10px;"></i>Instagram</h6>
+                        <span class="text-secondary">Username</span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0"><i class="fab fa-twitter" style="padding-right: 10px;"></i>Twitter</h6>
+                        <span class="text-secondary">@Username</span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0"><i class="fab fa-linkedin" style="padding-right: 10px;"></i>LinkedIn</h6>
+                        <span class="text-secondary">@Username</span>
+                      </li>
+                      <a href="" class="align-items-center list-group-item d-flex justify-content-between">Account
+                        Removal</a>
+                    </ul>
                   </div>
                 </div>
-              
-                <div class="col-lg-8">
-                  <div class="card">
-                    <div class="card-body">
-                     <form [formGroup]="userProfileForm" (ngSubmit)="onSubmit()" class="userprofile">
+              </div>
+
+              <div class="col-lg-8">
+                <div class="card">
+                  <div class="card-body">
+                    <form [formGroup]="userProfileForm" (ngSubmit)="onSubmit()" class="userprofile">
                       <div class="row mb-3">
                         <div class="col-sm-3">
-                          <h6 class="mb-0">First Name *</h6>
+                          <h6 class="mb-0">First Name <span class="text-danger">*</span></h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          <input 
-                            type="text" 
-                            class="form-control firstname"
-                            formControlName="firstname"
-                            id="firstname"
-                            value="" 
-                            name="firstname" 
-                            placeholder="{{user.firstname}}" required>
-                            <div *ngIf="submitted &&  f.firstname.errors?.required" class="text-danger validation-error">* Please enter firstname</div>
+                          <input type="text" class="form-control firstname" formControlName="firstname" id="firstname"
+                            value="" name="firstname" required>
+                          <div *ngIf="submitted &&  f.firstname.errors?.required" class="text-danger validation-error">*
+                            Please enter firstname</div>
                         </div>
                       </div>
-                    
+
 
                       <div class="row mb-3">
                         <div class="col-sm-3">
-                          <h6 class="mb-0">Last Name *</h6>
+                          <h6 class="mb-0">Last Name <span class="text-danger">*</span></h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          <input 
-                            type="text" 
+                          <input
+                            type="text"
                             class="form-control"
                             formControlName="lastname"
                             id="lastname"
-                            value="" 
-                            name="lastname"
-                            placeholder="{{user.lastname}}" required>
-                            <div *ngIf="submitted &&  f.lastname.errors?.required" class="text-danger validation-error">* Please enter lastname</div>
+                            name="lastname" required>
+                          <div *ngIf="submitted &&  f.lastname.errors?.required" class="text-danger validation-error">*
+                            Please enter lastname</div>
                         </div>
                       </div>
                       <div class="row mb-3">
                         <div class="col-sm-3">
-                          <h6 class="mb-0">Email *</h6>
+                          <h6 class="mb-0">Email <span class="text-danger">*</span></h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          <input 
-                            type="email" 
-                            class="form-control"
-                            formControlName="email"
-                            id="email"
-                            value="" 
-                            name="email" 
-                            placeholder="{{user.email}}" required>
-                            <div *ngIf="submitted &&  f.email.errors?.required" class="text-danger validation-error">* Please enter email</div>
+                          <input type="email" class="form-control" formControlName="email" id="email" value=""
+                            name="email" required>
+                          <div *ngIf="submitted &&  f.email.errors?.required" class="text-danger validation-error">*
+                            Please enter email</div>
                         </div>
                       </div>
                       <div class="row mb-3">
                         <div class="col-sm-3">
-                          <h6 class="mb-0">Phone *</h6>
+                          <h6 class="mb-0">Phone <span class="text-danger">*</span></h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          <input 
-                            type="number" 
-                            class="form-control"
-                            formControlName="phone"
-                            id="phone"
-                            value="" 
+                          <input type="text" class="form-control" formControlName="phone" id="phone"
                             name="phone" required>
-                            <div *ngIf="submitted &&  f.phone.errors?.required" class="text-danger validation-error">* Please enter phone number</div>
+                          <div *ngIf="submitted &&  f.phone.errors?.required" class="text-danger validation-error">*
+                            Please enter phone number</div>
                         </div>
                       </div>
                       <div class="row mb-3">
@@ -120,7 +107,8 @@
                           <h6 class="mb-0">Bio/Description</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            <textarea name="bioDescription" id="" cols="30" rows="3"  class="form-control form-control-userprofile"   formControlName="bioDescription"></textarea>
+                          <textarea name="bioDescription" id="" cols="30" rows="3"
+                            class="form-control form-control-userprofile" formControlName="bioDescription">{{user.bioDescription</textarea>
                         </div>
                       </div>
                       <div class="row mb-3">
@@ -128,12 +116,8 @@
                           <h6 class="mb-0">Company Name</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          <input type="text" 
-                          class="form-control form-control-userprofile"
-                          formControlName="companyName"    
-                          id="companyName"                        
-                          value="" 
-                          name="companyName">
+                          <input type="text" class="form-control form-control-userprofile" formControlName="companyName"
+                            id="companyName" name="companyName">
                         </div>
                       </div>
                       <div class="row mb-3">
@@ -141,12 +125,7 @@
                           <h6 class="mb-0">Current Plan</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          <input 
-                            type="text" 
-                            class="form-control"
-                            formControlName="" 
-                            value="" 
-                            name="">
+                          <input type="text" class="form-control" value="Free Subscription till further notice!!" readonly name="">
                         </div>
                       </div>
 
@@ -155,11 +134,10 @@
                           <h6 class="mb-0">Job Title</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          <input 
-                            type="text" 
+                          <input
+                            type="text"
                             class="form-control form-control-userprofile"
-                            formControlName="jobTitle" 
-                            value="" 
+                            formControlName="jobTitle"
                             name="jobTitle">
                         </div>
                       </div>
@@ -169,13 +147,8 @@
                           <h6 class="mb-0">Facebook</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          <input 
-                            type="url" 
-                            class="form-control"
-                            formControlName="urlFacebook" 
-                            value=""
-                            placeholder="Url" 
-                            name="urlFacebook">
+                          <input type="url" class="form-control" formControlName="urlFacebook" value=""
+                            placeholder="Url" name="urlFacebook">
                         </div>
                       </div>
 
@@ -184,13 +157,8 @@
                           <h6 class="mb-0">Instagram</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          <input 
-                            type="url" 
-                            class="form-control"
-                            formControlName="urlInstagram" 
-                            value="" 
-                            placeholder="Url"
-                            name="urlInstagram">
+                          <input type="url" class="form-control" formControlName="urlInstagram" value=""
+                            placeholder="Url" name="urlInstagram">
                         </div>
                       </div>
 
@@ -199,12 +167,8 @@
                           <h6 class="mb-0">Twitter</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          <input 
-                            type="url" 
-                            class="form-control"
-                            formControlName="urlTwitter" 
-                            value="http://twitter.com/" 
-                            name="urlTwitter">
+                          <input type="url" class="form-control" formControlName="urlTwitter"
+                            value="http://twitter.com/" name="urlTwitter">
                         </div>
                       </div>
 
@@ -213,26 +177,25 @@
                           <h6 class="mb-0">LinkedIn</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          <input 
-                            type="url" 
-                            class="form-control"
-                            formControlName="urlLinkedin" 
-                            value="" 
-                            placeholder="Url"
-                            name="urlLinkedin">
+                          <input type="url" class="form-control" formControlName="urlLinkedin" value=""
+                            placeholder="Url" name="urlLinkedin">
                         </div>
                       </div>
 
                       <div class="row">
                         <div class="col-sm-3"></div>
                         <div class="col-sm-9 text-secondary">
-                            <button type="submit" class="btn btn-secondary btn-user btn-block">
-                              Save Account Info
-                            </button>
+                          <button type="submit" class="btn btn-secondary btn-user btn-block">
+                            Save Account Info
+                          </button>
                         </div>
                       </div>
-                      </form>
-                    </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <app-alert></app-alert>
+                        </div>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -242,3 +205,4 @@
       </div>
     </div>
   </div>
+</div>

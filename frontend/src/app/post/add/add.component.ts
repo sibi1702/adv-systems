@@ -35,7 +35,6 @@ export class AddComponent implements OnInit {
 
   ngOnInit(): void {  
     this.user = this.userService.userValue;
-    console.log("=====>>",this.user)
   }
   
   get f(){

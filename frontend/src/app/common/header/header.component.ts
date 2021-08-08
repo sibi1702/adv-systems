@@ -13,7 +13,6 @@ export class HeaderComponent implements OnInit {
     private userService: UserService
   ) { 
     this.user = this.userService.userValue;
-    console.log("=====>>",this.user)
   }
 
   ngOnInit(): void {
