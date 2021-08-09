@@ -61,6 +61,8 @@
                             value="" name="firstname" required>
                           <div *ngIf="submitted &&  f.firstname.errors?.required" class="text-danger validation-error">*
                             Please enter firstname</div>
+                          <div *ngIf="submitted &&  f.firstname.errors?.minlength" class="text-danger validation-error">*
+                            Minimum three characters required.</div>
                         </div>
                       </div>
 
@@ -78,6 +80,8 @@
                             name="lastname" required>
                           <div *ngIf="submitted &&  f.lastname.errors?.required" class="text-danger validation-error">*
                             Please enter lastname</div>
+                          <div *ngIf="submitted &&  f.lastname.errors?.minlength" class="text-danger validation-error">*
+                            Minimum four characters required.</div>
                         </div>
                       </div>
                       <div class="row mb-3">
@@ -85,7 +89,7 @@
                           <h6 class="mb-0">Email <span class="text-danger">*</span></h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          <input type="email" class="form-control" formControlName="email" id="email" value=""
+                          <input type="email" class="form-control" formControlName="email" id="email" value="" readonly
                             name="email" required>
                           <div *ngIf="submitted &&  f.email.errors?.required" class="text-danger validation-error">*
                             Please enter email</div>

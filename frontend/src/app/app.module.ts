@@ -28,6 +28,7 @@ import { ListComponent } from './post/list/list.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 
 import { AlertComponent } from './alert/alert.component';
+import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 
 
 const routes: Routes = [
@@ -36,8 +37,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'aboutus', component: AboutusComponent, canActivate: [AuthGuard]  },
   { path: 'post/add', component: AddComponent, canActivate: [AuthGuard] },
+  { path: 'post/edit/:postId', component: AddComponent, canActivate: [AuthGuard] },
   { path: 'post/list', component: ListComponent, canActivate: [AuthGuard] },
   { path: 'userprofile', component: UserprofileComponent, canActivate: [AuthGuard] },
+  { path: 'terms-and-conditions', component: TermsAndConditionsComponent,},
+
 
 
 ];
@@ -69,7 +73,8 @@ AddComponent,
 ListComponent,
 UserprofileComponent,
 
-AlertComponent
+AlertComponent,
+  TermsAndConditionsComponent
   ],  
   providers: [
     {

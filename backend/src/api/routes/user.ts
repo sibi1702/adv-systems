@@ -35,6 +35,7 @@ export default (app: Router) => {
       logger.debug('Calling Sign-Up endpoint with body: %o', req.body);
       try {
         const userServiceInstance = Container.get(UserService);
+        Reflect.deleteProperty(req.body, 'email');
         const user = await userServiceInstance.Update(req.body as IUserInputDTO, req.body._id as string);
         Reflect.deleteProperty(user.user, '__v');
         Reflect.deleteProperty(user.user, 'createdAt');
