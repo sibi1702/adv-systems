@@ -3,11 +3,13 @@ export default {
     signUp: 'onUserSignUp',
     signIn: 'onUserSignIn',
     add: 'onUserprofileAdd',
-
+    update: 'onUserprofileUpdate',
   },
   post: {
     add: 'onPostUpdate',
     list: 'onPostList',
+    update: 'onUpdatePost',
+    delete: 'onDeletePost',
   },
 
 };

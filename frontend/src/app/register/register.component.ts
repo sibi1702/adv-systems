@@ -4,6 +4,7 @@ import { SocialAuthService } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
 import {UserService} from '../user.service';
 import { Router } from '@angular/router';
+import { MustMatch } from '../mustmatch.validator';
 
 import {AuthService} from '../auth.service';
 import { AlertService } from '../alert.service';
@@ -14,7 +15,8 @@ import { AlertService } from '../alert.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-	
+	passwordFieldTextType: boolean;
+    confrimPasswordFieldTextType: boolean;
     registerForm: FormGroup;
     submitted = false;
 
@@ -28,17 +30,27 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit(): void {
         this.registerForm = this.formBuilder.group({
-            firstname: ['', Validators.required, Validators.minLength(3)],
-            lastname: ['', Validators.required, Validators.minLength(3)],
-            email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-            password: ['', Validators.required, Validators.minLength(6)],
-            confirmPassword: ['', Validators.required],
-            acceptTerms: ['', Validators.requiredTrue]
+            firstname: [null,[ Validators.required, Validators.minLength(3)]],
+            lastname: [null,[ Validators.required, Validators.minLength(4)]],
+            email: [null, [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+            password: [null,[ Validators.required, Validators.minLength(6)]],
+            confirmPassword: [null,[ Validators.required]],
+            acceptTerms: [null,[ Validators.requiredTrue]]
+        },{
+            validator: MustMatch('password', 'confirmPassword')
         });
     }
     
+    showPassword() {
+        this.passwordFieldTextType = !this.passwordFieldTextType;
+    }
+
+    showConfrimPassword() {
+        this.confrimPasswordFieldTextType = !this.confrimPasswordFieldTextType;
+    }
+
     get f(){
-        return this.registerForm.controls;;
+        return this.registerForm.controls;
     }
 
     onSubmit() {

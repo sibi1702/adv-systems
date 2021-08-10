@@ -1,35 +1,38 @@
 <div id="wrapper">
-         <app-sidebar></app-sidebar>
-            <div id="content-wrapper" class="d-flex flex-column">
-              <div id="content">
-                <app-header></app-header>
-                  <div class="container-fluid">
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                     <h1 class="h3 mb-0 text-gray-800">Scheduled Posts</h1>
-                    </div>
-
-
-
-<table class="table table-striped table-hover">
-         <thead>
-           <tr>
-             <th scope="col">Post Description</th>
-             <th scope="col">Scheduled date and time</th>
-             <th scope="col">Posted in</th>
-             <th scope="col">Action</th>
-           </tr>
-         </thead>
-         <tbody>
-           <tr *ngFor="let post of posts">
-             <td>{{post.postDescription}}</td>
-             <td>{{post.scheduledDateTime}}</td>
-             <td>
-              <span class="badge badge-primary" *ngIf="post.postInFacebook">Facebook</span>
-              <span class="badge badge-primary" *ngIf="post.postInTwitter">Twiter</span>
-              <span class="badge badge-primary" *ngIf="post.postInInstagram">Instagram</span>
-              <span class="badge badge-primary" *ngIf="post.postInLinkedin">LinkedIn</span>
-            </td>
-             <td><i class="fas fa-pen fa-lg" style="padding-right: 25px; cursor: pointer;"></i><i class="fas fa-trash-alt fa-lg" style="cursor: pointer;"></i></td>
-           </tr>
-         </tbody>
-       </table>
+  <app-sidebar></app-sidebar>
+  <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+      <app-header></app-header>
+      <div class="container-fluid">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <h1 class="h3 mb-0 text-gray-800">Scheduled Posts</h1>
+        </div>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Post Description</th>
+              <th scope="col">Scheduled date and time</th>
+              <th scope="col">Posted in</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let post of posts">
+              <td>{{post.postDescription}}</td>
+              <td>{{post.scheduledDateTime | date:'dd/MM/yyyy h:mm a'}}</td>
+              <td>
+                <span class="badge badge-primary" *ngIf="post.postInFacebook">Facebook</span>
+                <span class="badge badge-primary" *ngIf="post.postInTwitter">Twiter</span>
+                <span class="badge badge-secondary" *ngIf="post.postInInstagram">Instagram</span>
+                <span class="badge badge-info" *ngIf="post.postInLinkedin">LinkedIn</span>
+              </td>
+              <td>
+                <a
+                  class="btn"
+                  [routerLink]="['/post/edit/', post._id]"><i class="fas fa-pen fa-sm text-primary"></i></a>
+                <a class="btn" (click)="deletePost(post._id)"><i
+                    class="fas fa-trash-alt fa-sm text-danger"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>

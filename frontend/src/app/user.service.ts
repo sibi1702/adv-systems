@@ -34,10 +34,12 @@ export class UserService {
     )
 
   }
+  
   setUserDetail(user:User) {
     localStorage.setItem('user', JSON.stringify(user));
     this.userSubject.next(user);
   }
+  
   getCurrentUser(token:string): Observable<User> {
     const headers = { 
       'content-type': 'application/json',
@@ -51,8 +53,10 @@ export class UserService {
       })
     )
   }
+  
   updateUserprofile(user:User): Observable<any> {
     const headers = { 'content-type': 'application/json'}  
+    console.log("-------->>>>>>",user)
     return this.http.post(this.baseUrl + 'users/update-user-profile', user,{'headers':headers}).pipe(
       catchError((err) => {
         console.error(err);

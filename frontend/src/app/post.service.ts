@@ -27,6 +27,18 @@ export class PostService {
 
   }
 
+  update(post: Post, postId: string): Observable<any> {
+    const headers = { 'content-type': 'application/json'}  
+    const body = post;
+    return this.http.post(this.baseUrl + 'post/update/' + postId, body,{'headers':headers}).pipe(
+      catchError((err) => {
+        console.error(err);
+        throw err;
+      })
+    )
+
+  }
+
   list(): Observable<any> {
     const headers = { 'content-type': 'application/json'}  
     return this.http.get(this.baseUrl + 'post/list',{'headers':headers}).pipe(
@@ -37,9 +49,25 @@ export class PostService {
     )
 
   }
+
+  deletePost(postId: string): Observable<any> {
+    const headers = { 'content-type': 'application/json'}  
+    return this.http.delete(this.baseUrl + 'post/delete-post/' + postId, { 'headers':headers }).pipe(
+      catchError((err) => {
+        console.error(err);
+        throw err;
+      })
+    )
+  }
+
+  getPostById(postId: string): Observable<any> {
+    const headers = { 'content-type': 'application/json'}  
+    return this.http.get(this.baseUrl + 'post/post-by-id/' + postId, { 'headers':headers }).pipe(
+      catchError((err) => {
+        console.error(err);
+        throw err;
+      })
+    )
+  }
+
 }
-
-
-
-
-

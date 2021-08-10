@@ -5,3 +5,58 @@
     font-size: 14px;
     padding-left: 20px;
 }
+
+.view-password-icon{
+
+        display: flex;
+        align-items: center;
+        padding: 0.375rem 0.75rem;
+        margin-bottom: 0;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #6e707e;
+        text-align: center;
+        white-space: nowrap;
+        background-color: #ffffff;
+        border: 1px solid #d1d3e2;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+        border-left: white;
+}
+
+.edit-delete-icon{
+    cursor: pointer; 
+    color: blue;
+    
+}
+
+
+.edit-delete-button{
+    border-radius: 22%; 
+    border-color: blue;
+    margin-left: 10px;
+}
+
+.badge{
+    margin-left: 5px;
+}
+
+.align-text{
+    padding-top: 20px;
+    padding-right: 200px;
+    padding-left: 200px;
+}
+
+.align-text-heading{
+    padding-top: 20px;
+    text-align: center;
+}
+
+input#confirmPassword {
+    border-right-color: white;
+}
+
+input#password {
+    border-right-color: white;
+}
