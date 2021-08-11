@@ -17,7 +17,6 @@ export default (app: Router) => {
       body: Joi.object({
         firstname: Joi.string().required(),
         lastname: Joi.string().required(),
-        email: Joi.string().required(),
         phone: Joi.string(),
         bioDescription: Joi.string(),
         companyName: Joi.string(),

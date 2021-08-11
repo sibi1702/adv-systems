@@ -8,6 +8,8 @@ export default {
   post: {
     add: 'onPostUpdate',
     list: 'onPostList',
+    update: 'onUpdatePost',
+    delete: 'onDeletePost',
   },
 
 };
