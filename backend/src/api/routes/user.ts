@@ -17,7 +17,6 @@ export default (app: Router) => {
       body: Joi.object({
         firstname: Joi.string().required(),
         lastname: Joi.string().required(),
-        email: Joi.string().required(),
         phone: Joi.string(),
         bioDescription: Joi.string(),
         companyName: Joi.string(),
@@ -35,7 +34,6 @@ export default (app: Router) => {
       logger.debug('Calling Sign-Up endpoint with body: %o', req.body);
       try {
         const userServiceInstance = Container.get(UserService);
-        Reflect.deleteProperty(req.body, 'email');
         const user = await userServiceInstance.Update(req.body as IUserInputDTO, req.body._id as string);
         Reflect.deleteProperty(user.user, '__v');
         Reflect.deleteProperty(user.user, 'createdAt');

@@ -99,7 +99,6 @@ export class AddComponent implements OnInit {
 
 
     this.postForm.value.scheduledDateTime = newScheduledDateTime.getTime();
-    alert(this.postId)
     if (this.postId === ''){
       this.addPost();
     } else {
@@ -127,7 +126,7 @@ export class AddComponent implements OnInit {
     this.postService.update(this.postForm.value, this.postId).subscribe({
       next: (data) => {
         if (data) {
-          this.alertService.success('Post scheduled succesfully.');
+          this.alertService.success('Post updated succesfully.');
           setTimeout(() => {
             this.router.navigate(['post/list']);
           },2000)

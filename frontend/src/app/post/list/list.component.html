@@ -27,12 +27,15 @@
                 <span class="badge badge-info" *ngIf="post.postInLinkedin">LinkedIn</span>
               </td>
               <td>
-                <a
-                  class="btn"
-                  [routerLink]="['/post/edit/', post._id]"><i class="fas fa-pen fa-sm text-primary"></i></a>
-                <a class="btn" (click)="deletePost(post._id)"><i
-                    class="fas fa-trash-alt fa-sm text-danger"></i></a>
+                <a class="btn" [routerLink]="['/post/edit/', post._id]"><i
+                    class="fas fa-pen fa-sm text-primary"></i></a>
+                <a class="btn" (click)="deletePost(post._id)"><i class="fas fa-trash-alt fa-sm text-danger"></i></a>
               </td>
             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>
