@@ -13,7 +13,7 @@
         <div class="container">
           <div class="main-body">
             <div class="row">
-              <div class="col-lg-4">
+              <!-- <div class="col-lg-4">
                 <div class="card">
                   <div class="card-body">
                     <div class="d-flex flex-column align-items-center text-center">
@@ -46,7 +46,7 @@
                     </ul>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <div class="col-lg-8">
                 <div class="card">
@@ -61,6 +61,8 @@
                             value="" name="firstname" required>
                           <div *ngIf="submitted &&  f.firstname.errors?.required" class="text-danger validation-error">*
                             Please enter firstname</div>
+                          <div *ngIf="submitted &&  f.firstname.errors?.minlength" class="text-danger validation-error">*
+                            Minimum three characters required.</div>
                         </div>
                       </div>
 
@@ -78,6 +80,8 @@
                             name="lastname" required>
                           <div *ngIf="submitted &&  f.lastname.errors?.required" class="text-danger validation-error">*
                             Please enter lastname</div>
+                          <div *ngIf="submitted &&  f.lastname.errors?.minlength" class="text-danger validation-error">*
+                            Minimum four characters required.</div>
                         </div>
                       </div>
                       <div class="row mb-3">
@@ -168,7 +172,7 @@
                         </div>
                         <div class="col-sm-9 text-secondary">
                           <input type="url" class="form-control" formControlName="urlTwitter"
-                            value="http://twitter.com/" name="urlTwitter">
+                            value=""  placeholder="Url" name="urlTwitter">
                         </div>
                       </div>
 
@@ -204,5 +208,6 @@
         </div>
       </div>
     </div>
+    <app-footer></app-footer>
   </div>
 </div>

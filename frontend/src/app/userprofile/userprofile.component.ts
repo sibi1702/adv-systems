@@ -26,8 +26,8 @@ export class UserprofileComponent implements OnInit {
     private alertService: AlertService
   ) {
     this.userProfileForm = this.formBuilder.group({
-      firstname: ['', Validators.required],
-      lastname: ['', Validators.required],
+      firstname: [null,[ Validators.required, Validators.minLength(3)]],
+      lastname: [null,[ Validators.required, Validators.minLength(4)]],
       email: ['', Validators.required],
       phone: ['', Validators.required],
       bioDescription: [''],
@@ -89,7 +89,11 @@ export class UserprofileComponent implements OnInit {
     if (this.userProfileForm.value.urlLinkedin === "") {
       delete this.userProfileForm.value.urlLinkedin;
     }
-    
+
+    if (this.userProfileForm.value.email) {
+      delete this.userProfileForm.value.email;
+    }
+
     this.userProfileForm.value._id = this.user._id;
 
     this.userService.updateUserprofile(this.userProfileForm.value).subscribe({

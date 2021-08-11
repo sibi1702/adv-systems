@@ -32,12 +32,12 @@
                                                 
                                                 <input 
                                                     [type]="viewPassword ? 'text' : 'password'" 
-                                                    class="form-control form-control-user"  
+                                                    class="form-control form-control-user border-right-0"  
                                                     formControlName="password" 
                                                     id="exampleInputPassword" 
                                                     placeholder="Password" >
                                                     <div class="input-group-prepend ">
-                                                        <span class="input-group-text" style="border-top-right-radius: 25px; border-bottom-right-radius: 25px;">
+                                                        <span class="view-password-icon">
                                                         <i
                                                         class="fa input-group "
                                                         [ngClass]="{
@@ -47,8 +47,8 @@
                                                         (click)="toggleViewPassword()"
                                                         style="cursor: pointer;"></i></span>
                                                     </div>
-                                            <div *ngIf="submitted &&  f.password.errors?.required" class="text-danger validation-error">* Please enter Password</div>
                                         </div>
+                                        <div *ngIf="submitted &&  f.password.errors?.required" class="text-danger validation-error">* Please enter Password</div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck">
