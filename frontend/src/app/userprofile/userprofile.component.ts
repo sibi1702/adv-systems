@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
-import { UserService } from '../user.service';
+import { AuthService } from '../sevice/auth';
+import { UserService } from '../sevice/user';
 import { Router } from '@angular/router';
-import { User } from '../user.model';
+import { User } from '../model/user.model';
 
-import { AlertService } from '../alert.service';
+import { AlertService } from '../sevice/alert';
 @Component({
   selector: 'app-userprofile',
   templateUrl: './userprofile.component.html',
@@ -26,8 +26,8 @@ export class UserprofileComponent implements OnInit {
     private alertService: AlertService
   ) {
     this.userProfileForm = this.formBuilder.group({
-      firstname: [null,[ Validators.required, Validators.minLength(3)]],
-      lastname: [null,[ Validators.required, Validators.minLength(4)]],
+      firstname: [null,[ Validators.required]],
+      lastname: [null,[ Validators.required]],
       email: ['', Validators.required],
       phone: ['', Validators.required],
       bioDescription: [''],

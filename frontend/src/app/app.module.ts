@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
+import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 
 
 import { RouterModule, Routes } from '@angular/router';
@@ -29,6 +30,8 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 
 import { AlertComponent } from './alert/alert.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 const routes: Routes = [
@@ -40,12 +43,17 @@ const routes: Routes = [
   { path: 'post/edit/:postId', component: AddComponent, canActivate: [AuthGuard] },
   { path: 'post/list', component: ListComponent, canActivate: [AuthGuard] },
   { path: 'userprofile', component: UserprofileComponent, canActivate: [AuthGuard] },
-  { path: 'terms-and-conditions', component: TermsAndConditionsComponent,},
+  { path: 'terms-and-conditions', component: TermsAndConditionsComponent},
+  { path: 'forgotpassword', component: ForgotpasswordComponent},
+  { path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard] },
 
 
 
 ];
 
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+]);
 
 @NgModule({
   imports: [
@@ -56,7 +64,8 @@ const routes: Routes = [
     RouterModule.forRoot(
       routes,
       { enableTracing: true } // <-- debugging purposes only
-    )
+    ),
+    FullCalendarModule,
   ],
   declarations: [
     AppComponent,
@@ -74,7 +83,9 @@ ListComponent,
 UserprofileComponent,
 
 AlertComponent,
-  TermsAndConditionsComponent
+  TermsAndConditionsComponent,
+  ForgotpasswordComponent,
+  CalendarComponent
   ],  
   providers: [
     {

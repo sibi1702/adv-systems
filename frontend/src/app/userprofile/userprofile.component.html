@@ -89,7 +89,7 @@
                           <h6 class="mb-0">Email <span class="text-danger">*</span></h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          <input type="email" class="form-control" formControlName="email" id="email" value=""
+                          <input type="email" class="form-control" formControlName="email" id="email" value="" readonly
                             name="email" required>
                           <div *ngIf="submitted &&  f.email.errors?.required" class="text-danger validation-error">*
                             Please enter email</div>
