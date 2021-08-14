@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {PostService} from '../../post.service';
-import {Post} from '../../post.model';
+import {PostService} from '../../sevice/post';
+import {Post} from '../../model/post.model';
 import { Globals } from '../../common/globals';
 @Component({
   selector: 'app-list',

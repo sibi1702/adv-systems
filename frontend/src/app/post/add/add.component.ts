@@ -2,10 +2,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { PostService } from '../../post.service';
-import { UserService } from '../../user.service';
-import { User } from '../../user.model';
-import { AlertService } from '../../alert.service';
+import { PostService } from '../../sevice/post';
+import { UserService } from '../../sevice/user';
+import { User } from '../../model/user.model';
+import { AlertService } from '../../sevice/alert';
 
 @Component({
   selector: 'app-add',
