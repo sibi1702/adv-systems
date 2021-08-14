@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {Post} from './post.model';
+import {Post} from '../model/post.model';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 

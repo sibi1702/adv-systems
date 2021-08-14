@@ -39,7 +39,7 @@
                                     formControlName="password"
                                     placeholder="Password">
                                     <div class="col-sm-1.5 mb-1 mb-sm-0 input-group-prepend">
-                                        <span class="view-password-icon">
+                                        <span class="view-password-icon-register-form">
                                             <i class="fa" [ngClass]="{
                                             'fa-eye-slash' : !passwordFieldTextType,
                                             'fa-eye' : passwordFieldTextType}" (click)="showPassword()"
@@ -59,7 +59,7 @@
                                     class="form-control form-control-user border-right-0" id="confirmPassword"
                                     formControlName="confirmPassword" placeholder="Repeat Password">
                                     <div class="col-sm-1.5 mb-1 mb-sm-0 input-group-prepend ">
-                                        <span class="view-password-icon">
+                                        <span class="view-password-icon-register-form">
                                             <i class="fa" [ngClass]="{
                                             'fa-eye-slash' : !confrimPasswordFieldTextType,
                                             'fa-eye' : confrimPasswordFieldTextType}" (click)="showConfrimPassword()"
@@ -84,7 +84,7 @@
                                 </div>
                             </div>
                             <div *ngIf="submitted && f.acceptTerms.errors" class="text-danger validation-error">
-                                <div *ngIf="f.acceptTerms.errors?.required">* This is a required feild</div>
+                                <div *ngIf="f.acceptTerms.errors?.required">* Please agree to all the terms and conditions before registering.</div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-user btn-block">
                                 Register Account
@@ -100,7 +100,7 @@
                         </form>
                         <hr>
                         <div class="text-center">
-                            <a class="small" routerLink="/forgot-password">Forgot Password?</a>
+                            <a class="small" routerLink="/forgotpassword">Forgot Password?</a>
                         </div>
                         <div class="text-center">
                             <a class="small" routerLink="/login">Already have an account? Login!</a>

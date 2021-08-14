@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { SocialAuthService } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
-import {UserService} from '../user.service';
+import {UserService} from '../sevice/user';
 import { Router } from '@angular/router';
 import { MustMatch } from '../mustmatch.validator';
 
-import {AuthService} from '../auth.service';
-import { AlertService } from '../alert.service';
+import {AuthService} from '../sevice/auth';
+import { AlertService } from '../sevice/alert';
 
 @Component({
   selector: 'app-register',
