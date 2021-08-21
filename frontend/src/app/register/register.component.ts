@@ -5,9 +5,10 @@ import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-logi
 import {UserService} from '../sevice/user';
 import { Router } from '@angular/router';
 import { MustMatch } from '../mustmatch.validator';
-
+import { Globals } from "../common/globals";
 import {AuthService} from '../sevice/auth';
 import { AlertService } from '../sevice/alert';
+import { User } from '../model/user.model';
 
 @Component({
   selector: 'app-register',
@@ -83,6 +84,24 @@ export class RegisterComponent implements OnInit {
     signInWithGoogle(): void {
         this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((userData) => {
             this.router.navigate(['index']);
+            console.log(userData);
+            // const googleUserDetail:any = {};
+            //  googleUserDetail.firstname = userData.firstName,
+            //  googleUserDetail.lastname = userData.lastName,
+            //  googleUserDetail.email = userData.email,
+            //  googleUserDetail.password = this.globals.randomString(6,'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'),
+
+            //  this.userService.addUser(googleUserDetail).subscribe({
+            //     next : (data) => {
+            //         if (data.token) {
+            //             this.alertService.success('Registration successfull! Please Login.');
+            //             //this.router.navigate(['login']);
+            //         }
+            //     },
+            //     error: error => {
+            //         this.alertService.error(error.error.errors.message);
+            //     }
+            // }) ;
         });
     }
   

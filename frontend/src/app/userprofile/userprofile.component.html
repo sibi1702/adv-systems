@@ -54,7 +54,7 @@
                     <form [formGroup]="userProfileForm" (ngSubmit)="onSubmit()" class="userprofile">
                       <div class="row mb-3">
                         <div class="col-sm-3">
-                          <h6 class="mb-0">First Name <span class="text-danger">*</span></h6>
+                          <h3 class="mb-0">First Name <span class="text-danger">*</span></h3>
                         </div>
                         <div class="col-sm-9 text-secondary">
                           <input type="text" class="form-control firstname" formControlName="firstname" id="firstname"
@@ -69,7 +69,7 @@
 
                       <div class="row mb-3">
                         <div class="col-sm-3">
-                          <h6 class="mb-0">Last Name <span class="text-danger">*</span></h6>
+                          <h3 class="mb-0">Last Name <span class="text-danger">*</span></h3>
                         </div>
                         <div class="col-sm-9 text-secondary">
                           <input
@@ -86,7 +86,7 @@
                       </div>
                       <div class="row mb-3">
                         <div class="col-sm-3">
-                          <h6 class="mb-0">Email <span class="text-danger">*</span></h6>
+                          <h3 class="mb-0">Email <span class="text-danger">*</span></h3>
                         </div>
                         <div class="col-sm-9 text-secondary">
                           <input type="email" class="form-control" formControlName="email" id="email" value="" readonly
@@ -97,18 +97,16 @@
                       </div>
                       <div class="row mb-3">
                         <div class="col-sm-3">
-                          <h6 class="mb-0">Phone <span class="text-danger">*</span></h6>
+                          <h3 class="mb-0">Phone <span class="text-danger"></span></h3>
                         </div>
                         <div class="col-sm-9 text-secondary">
                           <input type="text" class="form-control" formControlName="phone" id="phone"
-                            name="phone" required>
-                          <div *ngIf="submitted &&  f.phone.errors?.required" class="text-danger validation-error">*
-                            Please enter phone number</div>
+                            name="phone" required ng2TelInput>
                         </div>
                       </div>
                       <div class="row mb-3">
                         <div class="col-sm-3">
-                          <h6 class="mb-0">Bio/Description</h6>
+                          <h3 class="mb-0">Bio/Description</h3>
                         </div>
                         <div class="col-sm-9 text-secondary">
                           <textarea name="bioDescription" id="" cols="30" rows="3"
@@ -117,7 +115,7 @@
                       </div>
                       <div class="row mb-3">
                         <div class="col-sm-3">
-                          <h6 class="mb-0">Company Name</h6>
+                          <h3 class="mb-0">Company Name</h3>
                         </div>
                         <div class="col-sm-9 text-secondary">
                           <input type="text" class="form-control form-control-userprofile" formControlName="companyName"
@@ -126,7 +124,7 @@
                       </div>
                       <div class="row mb-3">
                         <div class="col-sm-3">
-                          <h6 class="mb-0">Current Plan</h6>
+                          <h3 class="mb-0">Current Plan</h3>
                         </div>
                         <div class="col-sm-9 text-secondary">
                           <input type="text" class="form-control" value="Free Subscription till further notice!!" readonly name="">
@@ -135,7 +133,7 @@
 
                       <div class="row mb-3">
                         <div class="col-sm-3">
-                          <h6 class="mb-0">Job Title</h6>
+                          <h3 class="mb-0">Job Title</h3>
                         </div>
                         <div class="col-sm-9 text-secondary">
                           <input
@@ -148,7 +146,7 @@
 
                       <div class="row mb-3">
                         <div class="col-sm-3">
-                          <h6 class="mb-0">Facebook</h6>
+                          <h3 class="mb-0">Facebook</h3>
                         </div>
                         <div class="col-sm-9 text-secondary">
                           <input type="url" class="form-control" formControlName="urlFacebook" value=""
@@ -158,7 +156,7 @@
 
                       <div class="row mb-3">
                         <div class="col-sm-3">
-                          <h6 class="mb-0">Instagram</h6>
+                          <h3 class="mb-0">Instagram</h3>
                         </div>
                         <div class="col-sm-9 text-secondary">
                           <input type="url" class="form-control" formControlName="urlInstagram" value=""
@@ -168,7 +166,7 @@
 
                       <div class="row mb-3">
                         <div class="col-sm-3">
-                          <h6 class="mb-0">Twitter</h6>
+                          <h3 class="mb-0">Twitter</h3>
                         </div>
                         <div class="col-sm-9 text-secondary">
                           <input type="url" class="form-control" formControlName="urlTwitter"
@@ -178,7 +176,7 @@
 
                       <div class="row mb-3">
                         <div class="col-sm-3">
-                          <h6 class="mb-0">LinkedIn</h6>
+                          <h3 class="mb-0">LinkedIn</h3>
                         </div>
                         <div class="col-sm-9 text-secondary">
                           <input type="url" class="form-control" formControlName="urlLinkedin" value=""

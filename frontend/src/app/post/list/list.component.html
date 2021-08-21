@@ -21,10 +21,10 @@
               <td>{{post.postDescription}}</td>
               <td>{{post.scheduledDateTime | date:'dd/MM/yyyy h:mm a'}}</td>
               <td>
-                <span class="badge badge-primary" *ngIf="post.postInFacebook">Facebook</span>
-                <span class="badge badge-primary" *ngIf="post.postInTwitter">Twiter</span>
-                <span class="badge badge-secondary" *ngIf="post.postInInstagram">Instagram</span>
-                <span class="badge badge-info" *ngIf="post.postInLinkedin">LinkedIn</span>
+                <span class="badge badge-primary-color-facebook" *ngIf="post.postInFacebook"><i class="fab fa-facebook"></i>Facebook</span>
+                <span class="badge badge-info-color-twitter" *ngIf="post.postInTwitter"><i class="fab fa-twitter"></i>Twiter</span>
+                <span class="badge badge-secondary-color-instagram" *ngIf="post.postInInstagram"><i class="fab fa-instagram"></i>Instagram</span>
+                <span class="badge badge-light-color-linkedin" *ngIf="post.postInLinkedin"><i class="fab fa-linkedin"></i>LinkedIn</span>
               </td>
               <td>
                 <a class="btn" [routerLink]="['/post/edit/', post._id]"><i
