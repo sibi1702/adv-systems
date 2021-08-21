@@ -3,16 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
-
-
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+import interactionPlugin from '@fullcalendar/interaction';
+import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
-import {
-    GoogleLoginProvider,
-    FacebookLoginProvider
-  } from 'angularx-social-login';
+import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
 import { AuthGuard } from './auth.guard';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
@@ -27,12 +25,13 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { AddComponent } from './post/add/add.component';
 import { ListComponent } from './post/list/list.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
-
 import { AlertComponent } from './alert/alert.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { CalendarComponent } from './calendar/calendar.component';
-
+import { Ng2TelInputModule } from "ng2-tel-input";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
 
 const routes: Routes = [
   { path: '', component: IndexComponent, canActivate: [AuthGuard] },
@@ -46,13 +45,15 @@ const routes: Routes = [
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent},
   { path: 'forgotpassword', component: ForgotpasswordComponent},
   { path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard] },
-
-
+  { path: 'index', component:IndexComponent, canActivate: [AuthGuard]}
 
 ];
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
+  timeGridPlugin,
+  listPlugin,
+  interactionPlugin
 ]);
 
 @NgModule({
@@ -61,11 +62,15 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     HttpClientModule,
     ReactiveFormsModule,
     SocialLoginModule,
+    Ng2TelInputModule,
+    AppRoutingModule,
+    MatButtonModule,
     RouterModule.forRoot(
       routes,
       { enableTracing: true } // <-- debugging purposes only
     ),
     FullCalendarModule,
+    BrowserAnimationsModule,
   ],
   declarations: [
     AppComponent,
@@ -77,15 +82,14 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     SidebarComponent,
     RegisterComponent,
     LoginComponent,
-AboutusComponent,
-AddComponent,
-ListComponent,
-UserprofileComponent,
-
-AlertComponent,
-  TermsAndConditionsComponent,
-  ForgotpasswordComponent,
-  CalendarComponent
+    AboutusComponent,
+    AddComponent,
+    ListComponent,
+    UserprofileComponent,
+    AlertComponent,
+    TermsAndConditionsComponent,
+    ForgotpasswordComponent,
+    CalendarComponent,  
   ],  
   providers: [
     {
