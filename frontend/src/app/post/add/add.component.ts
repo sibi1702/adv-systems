@@ -16,7 +16,12 @@ export class AddComponent implements OnInit {
   postId: string = '';
   postForm: FormGroup;
   submitted = false;
-  user: User
+  user: User;
+  title = 'materialApp';
+   checked = false;
+   indeterminate = false;
+   labelPosition = 'after';
+   disabled = false;
 
   constructor(
     private formBuilder: FormBuilder,

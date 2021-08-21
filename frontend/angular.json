@@ -30,20 +30,23 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.css",
               "src/assets/css/sb-admin-2.css",
               "src/assets/vendor/fontawesome-free/css/all.min.css",
               "./node_modules/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css",
               "./node_modules/@fullcalendar/common/main.css",
               "./node_modules/@fullcalendar/daygrid/main.css",
-              "./node_modules/angular-calendar/css/angular-calendar.css"
+              "./node_modules/angular-calendar/css/angular-calendar.css",
+              "./node_modules/intl-tel-input/build/css/intlTelInput.css"
             ],
             "scripts": [
               "src/assets/vendor/jquery/jquery.min.js",
               "src/assets/vendor/jquery-easing/jquery.easing.min.js",
               "src/assets/vendor/chart.js/Chart.min.js",
               "./node_modules/bootstrap-datetime-picker/js/bootstrap-datetimepicker.js",
-              "./src/assets/js/sb-admin-2.js"
+              "./src/assets/js/sb-admin-2.js",
+              "./node_modules/intl-tel-input/build/js/intlTelInput.min.js"
             ]
           },
           "configurations": {
@@ -109,7 +112,7 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.css"
             ],
             "scripts": []

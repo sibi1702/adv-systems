@@ -97,7 +97,6 @@
     min-width: 140px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    border-radius: 10px;
   }
 
   .dropdown-content a:hover {background-color: #f1f1f1}
@@ -129,15 +128,23 @@ label.form-check-label {
 
 input#postInTwitter {
   cursor: pointer;
+  height: 17px;
+  width: 17px;
 }
 input#postInLinkedin {
   cursor: pointer;
+  height: 17px;
+  width: 17px;
 }
 input#postInInstagram {
   cursor: pointer;
+  height: 17px;
+  width: 17px;
 }
 input#postInFacebook {
   cursor: pointer;
+  height: 17px;
+  width: 17px;
 }
 
 /* background image for forgot password */
@@ -145,4 +152,60 @@ input#postInFacebook {
   background: url(https://source.unsplash.com/oWTW-jNGl9I/600x800);
   background-position: center;
   background-size: cover;
+}
+
+/* badge color list post */
+span.badge.badge-primary-color-facebook {
+  background-color: #4267B2;
+  color: white;
+}
+
+span.badge.badge-info-color-twitter {
+  background-color: rgb(29, 161, 242);
+  color: white;
+}
+
+span.badge.badge-secondary-color-instagram {
+  background-color: #e74959;
+  color: white;
+}
+
+span.badge.badge-light-color-linkedin {
+  background-color: #0a66c2;
+  color: white;
+}
+
+/* css for padding between the icon and the text inside the badge in the list post page */
+i.fab.fa-facebook {
+  padding-right: 3px;
+}
+
+i.fab.fa-twitter {
+  padding-right: 3px;
+}
+
+i.fab.fa-instagram {
+  padding-right: 3px;
+}
+
+i.fab.fa-linkedin {
+  padding-right: 3px;
+}
+
+/* css for the width of the input tag of phone number in the user profile page */
+input#phone {
+  width: 210%;
+}
+
+/* css for submit button in the create post page */
+.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+  background-color: #858796;
+}
+
+/* css for disabling the autofill colour of the browser */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
 }
