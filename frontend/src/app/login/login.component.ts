@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   toggleViewPassword() {
     this.viewPassword = !this.viewPassword;
   }
-  
+
   onSubmit() {
     this.submitted = true;
 
@@ -58,14 +58,26 @@ export class LoginComponent implements OnInit {
               }, 1500);
             },
             error: error => {
-              this.alertService.error(error.error.errors.message);
+              if (error.error && error.error.errors && error.error.errors.message) {
+                this.alertService.error(error.error.errors.message);
+              } else if (error.message) {
+                this.alertService.error(error.message);
+              } else {
+                this.alertService.error('Could not connect to the server. Please try again later.');
+              }
             }
           })
-          
-        }     
+
+        }
       },
       error: error => {
-        this.alertService.error(error.error.errors.message);
+        if (error.error && error.error.errors && error.error.errors.message) {
+          this.alertService.error(error.error.errors.message);
+        } else if (error.message) {
+          this.alertService.error(error.message);
+        } else {
+          this.alertService.error('Could not connect to the server. Please try again later.');
+        }
       }
     }) ;
   }
