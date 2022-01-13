@@ -1,3 +1,3 @@
-# social
+# Advanced Systems
 
-social media marketing
+A full-stack application for social media marketing and analytics.
