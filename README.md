@@ -6,3 +6,11 @@ A full-stack application for social media marketing and analytics.
 
 - **Frontend**: Angular-based web application
 - **Backend**: Node.js/Express API server
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14+)
+- MongoDB
+- Angular CLI
