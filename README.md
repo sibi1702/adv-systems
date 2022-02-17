@@ -14,3 +14,22 @@ A full-stack application for social media marketing and analytics.
 - Node.js (v14+)
 - MongoDB
 - Angular CLI
+
+### Installation
+
+#### Backend
+
+```bash
+cd backend
+npm install
+cp .env.example .env  # Configure your environment variables
+npm start
+```
+
+#### Frontend
+
+```bash
+cd frontend
+npm install
+npm start
+```
