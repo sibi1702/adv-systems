@@ -33,3 +33,10 @@ cd frontend
 npm install
 npm start
 ```
+
+## Features
+
+- User authentication and authorization
+- Social media post scheduling
+- Analytics dashboard
+- User profile management
