@@ -40,3 +40,4 @@ npm start
 - Social media post scheduling
 - Analytics dashboard
 - User profile management
+- Content calendar view
