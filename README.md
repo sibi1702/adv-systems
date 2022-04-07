@@ -41,3 +41,4 @@ npm start
 - Analytics dashboard
 - User profile management
 - Content calendar view
+- Multi-platform posting (Twitter, Facebook, LinkedIn, Instagram)
