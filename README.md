@@ -1,6 +1,6 @@
 # Advanced Systems
 
-A full-stack application for social media marketing and analytics.
+A full-stack application for social media marketing and analytics. Designed to help businesses manage their social media presence effectively.
 
 ## Project Structure
 
