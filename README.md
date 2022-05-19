@@ -42,3 +42,5 @@ npm start
 - User profile management
 - Content calendar view
 - Multi-platform posting (Twitter, Facebook, LinkedIn, Instagram)
+- Post analytics and reporting
+- Audience insights
